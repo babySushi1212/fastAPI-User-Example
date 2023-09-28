@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 from app.schemas.user_schema import UserCreate, UserRead, UserUpdate
 from app.configs import auth_backend, base_config
-from app.services.user_service import fastapi_users
+from app.routers.user_router import fastapi_users
 from app.routers.user_router import api_router
 
 

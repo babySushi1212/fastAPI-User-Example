@@ -68,6 +68,3 @@ def parse_jwt(token: str) -> str:
 
 async def get_user_manager(user_db: SQLAlchemyUserDatabase = Depends(get_user_db)):
     yield UserManager(user_db)
-
-fastapi_users = FastAPIUsers[User, uuid.UUID](get_user_manager, [auth_backend])
-current_active_user = fastapi_users.current_user(active=True)
