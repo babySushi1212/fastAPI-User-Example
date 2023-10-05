@@ -116,6 +116,29 @@ async def on_after_login(
 
 ```
 
+## Legacy
+
+### Dependency
+
+- If you need to stay on SQLAlchemy 1.4, you can pin this dependency: fastapi-users-db-sqlalchemy<5.0.0 - [release notes](https://github.com/fastapi-users/fastapi-users/releases)
+- SQLAlchemy<=1.4.41 for sqlmodel dependency
+
+### Code
+
+- sqlalchemy create engine [docs](https://docs.sqlalchemy.org/en/20/orm/extensions/asyncio.html)
+- sqlalchemy base model [docs](https://docs.sqlalchemy.org/en/14/orm/declarative_styles.html)
+
+```bash
+pydantic.errors.PydanticUserError: You must set the config attribute `from_attributes=True` to use from_orm
+```
+- [issue](https://github.com/pydantic/pydantic/discussions/5393)
+- and a queryset part is also need some hook for conversion:
+- add below nested class config 
+```python
+class Config:
+    from_attributes = True
+```
+
 ## TODO
 
 - [OAuth2](https://fastapi-users.github.io/fastapi-users/12.1/configuration/oauth/)

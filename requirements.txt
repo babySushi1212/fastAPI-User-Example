@@ -1,4 +1,5 @@
-fastapi
+SQLAlchemy<=1.4.41
+fastapi-users-db-sqlalchemy<5.0.0
 fastapi-users[sqlalchemy]
-uvicorn[standard]
+
 
