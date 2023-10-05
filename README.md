@@ -60,6 +60,24 @@ app.include_router(
 )
 ```
 
+
+## Model
+
+default `User` model
+
+```python
+"""
+    Table('user', MetaData(), 
+    Column('email', String(length=320), table=<user>, nullable=False),
+    Column('hashed_password', String(length=1024), table=<user>, nullable=False),
+    Column('is_active', Boolean(), table=<user>, nullable=False, default=ColumnDefault(True)),
+    Column('is_superuser', Boolean(), table=<user>, nullable=False, default=ColumnDefault(False)), 
+    Column('is_verified', Boolean(), table=<user>, nullable=False, default=ColumnDefault(False)),
+    Column('id', GUID(), table=<user>, primary_key=True, nullable=False, default=ColumnDefault(<function uuid4 at 0x1057a5b40>)), schema=None)
+"""
+```
+
+
 ## Schemas
 
 schemas must match the User model. - [Official Document](https://fastapi-users.github.io/fastapi-users/12.1/configuration/schemas/)

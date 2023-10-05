@@ -1,8 +1,8 @@
 from fastapi import Depends, FastAPI
 
-from app1.db import User, create_db_and_tables
-from app1.schemas import UserCreate, UserRead, UserUpdate
-from app1.users import auth_backend, current_active_user, fastapi_users
+from app_legacy.db import User, create_db_and_tables
+from app_legacy.schemas import UserCreate, UserRead, UserUpdate
+from app_legacy.users import auth_backend, current_active_user, fastapi_users
 
 app = FastAPI()
 

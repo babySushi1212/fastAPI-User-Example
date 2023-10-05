@@ -6,7 +6,7 @@ from fastapi_users.authentication import (
     BearerTransport,
     JWTStrategy,
 )
-from fastapi_users.jwt import SecretType, decode_jwt, generate_jwt
+from fastapi_users.jwt import SecretType, generate_jwt
 from app.configs.baes_configs import base_config
 from app.configs.db import async_session_maker
 
