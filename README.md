@@ -157,6 +157,16 @@ class Config:
     from_attributes = True
 ```
 
+## Migration
+
+### assign new primary-key
+
+add `__table_args__ = {'extend_existing': True}`
+If A table inherit B, C table which have same table name.
+we have to add above attributes to one of B or C
+
+- [stackoverflow](https://stackoverflow.com/questions/37908767/table-roles-users-is-already-defined-for-this-metadata-instance)
+
 ## TODO
 
 - [OAuth2](https://fastapi-users.github.io/fastapi-users/12.1/configuration/oauth/)

@@ -1,21 +1,14 @@
-from typing import Optional, List, AsyncGenerator
-from sqlalchemy import select
-
-from fastapi_users import models
-from fastapi_users.db import SQLAlchemyUserDatabase
-
 import jwt
-from typing import Optional, Generic
+from typing import Optional, List, AsyncGenerator, Generic
 from sqlalchemy import select
-from fastapi_users.db import SQLAlchemyUserDatabase
 
-from fastapi_users.jwt import decode_jwt, generate_jwt
 from fastapi import Request
-from fastapi_users import BaseUserManager, models, exceptions
+from fastapi_users import models, exceptions, BaseUserManager
+from fastapi_users.db import SQLAlchemyUserDatabase
 from fastapi_users.authentication import JWTStrategy
+from fastapi_users.jwt import decode_jwt, generate_jwt, SecretType
 
-## Customize Auth
-from fastapi_users.jwt import SecretType, generate_jwt
+
 class CustomizablePayloadJWTStrategy(JWTStrategy):
     """
     this subclass is for customize token payload purpose
@@ -49,8 +42,6 @@ class CustomizablePayloadJWTStrategy(JWTStrategy):
         )
 
 
-from fastapi_users.db import BaseUserDatabase
-from fastapi_users.password import PasswordHelper, PasswordHelperProtocol
 
 class CustomizedBaseUserManager(BaseUserManager, Generic[models.UP, models.ID]):
     async def request_verify(
